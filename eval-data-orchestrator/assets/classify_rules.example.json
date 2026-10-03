@@ -1,0 +1,18 @@
+{
+  "_comment": "Example: FraudBench difficulty tiers from the task-ID convention. For tool-sequence tiers, define metrics over the expected-actions list instead (see SKILL.md / references/taxonomy_and_tiers.md).",
+  "id_field": "id",
+  "list_path": null,
+  "metrics": {
+    "task_id": {"metric": "value", "path": "id"},
+    "n_prohibited": {"metric": "count", "path": "annotations.prohibited_agent_actions[]"},
+    "n_assertions": {"metric": "count", "path": "evaluation_criteria.nl_assertions[]"},
+    "has_docs": {"metric": "exists", "path": "required_documents[]"}
+  },
+  "rules": [
+    {"label": "chain", "all": [["task_id", "regex", "_chain_"]]},
+    {"label": "adaptive_two_phase", "all": [["task_id", "regex", "_09$"]]},
+    {"label": "single_decisive_control", "all": [["task_id", "regex", "_08$"]]},
+    {"label": "ordinary", "all": [["task_id", "regex", "_0[1-7]$"]]}
+  ],
+  "default": "unclassified"
+}

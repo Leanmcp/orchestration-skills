@@ -1,0 +1,10 @@
+{
+  "_comment": "Stratify by category, keep items that mention the same account/user ID in one split, withhold a hidden slice.",
+  "id_field": "id",
+  "list_path": null,
+  "strata": ["annotations.fraud_mechanism"],
+  "group_by": ["annotations.control_pair_id"],
+  "group_regex": {"user_scenario.instructions": "\\b(?:u|chk|sav|biz|dbc)_[A-Za-z0-9]+\\b"},
+  "ratios": {"train": 0.6, "dev": 0.1, "test": 0.15, "hidden": 0.15},
+  "seed": 13
+}

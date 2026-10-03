@@ -1,0 +1,13 @@
+{
+  "_comment": "Example for a tau2-style task folder plus its generated DB. Scan only what the agent can see or what the simulated user may say.",
+  "id_field": "id",
+  "list_path": null,
+  "scan_paths": ["user_scenario.instructions", "user_scenario.known_info", "initial_state"],
+  "extra_files": [{"path": "data/tau2/domains/fraudbench/db.json", "scan_paths": [""]}],
+  "id_regex": "\\b(?:u|chk|sav|biz|dbc|btxn|ctxn|cc|cbd|ddsp|acct|custodial)_[A-Za-z0-9_]+\\b",
+  "forbidden_tokens": ["fraud", "scam", "mule", "victim", "attacker", "attack", "phish", "exfil", "inject", "compromised", "bec", "ofac", "ghost", "struct", "bypass", "launder", "admin", "ceo"],
+  "allowed_id_words": ["ext"],
+  "allow_substrings": [],
+  "free_text_paths_ignore": [],
+  "min_word_len": 4
+}

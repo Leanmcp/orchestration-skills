@@ -1,0 +1,15 @@
+{
+  "_comment": "Defaults fit tau2 results.json. Switch length to {\"metric\": \"tokens\", \"path\": \"messages[].content\"} to bucket by approximate context tokens.",
+  "list_path": "simulations",
+  "id_field": "task_id",
+  "length": {"metric": "count", "path": "messages[]"},
+  "reward_path": "reward_info.reward",
+  "pass_threshold": 0.999,
+  "termination_path": "termination_reason",
+  "termination_map": {"max_steps": "timeout", "too_many_errors": "infra_error"},
+  "infra_error_regex": "(rate limit|429|403|quota exceeded|daily limit|context length)",
+  "error_text_path": "messages[].content",
+  "buckets": [0, 10, 20, 40, 60, 80, 120],
+  "knee_drop": 0.15,
+  "knee_invalid": 0.10
+}

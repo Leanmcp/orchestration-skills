@@ -1,0 +1,23 @@
+{
+  "skill_name": "eval-data-orchestrator",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "We're building an eval for an insurance-claims support agent. We only have the policy PDF summary (deductibles, 30-day filing window, fraud referral if >2 claims in 12 months) and a list of 9 tools. Zero example conversations. Plan the dataset and draft the first 10 tasks.",
+      "expected_output": "EVAL_PLAN with taxonomy, cold-start world build, rule-to-boundary items incl. on-threshold and +/-1 cases, matched controls, opaque IDs, deterministic checks, infra audit labels.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Look at data/tau2/domains/fraudbench/ and tell me how to split it into train/test for RL without contaminating the eval, plus which categories would basically disappear if the bank had OAuth login and RBAC on the lookup tools.",
+      "expected_output": "Group-aware stratified split config, hidden slice, infra-solvable vs judgment-only labels per category with the verify-by-oracle redesign for PII confirmation leaks.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "our retail agent benchmark scores dropped a lot on the long tasks and I can't tell if the model is worse or the grader is. how do I figure out how long conversations can get before results are garbage, and which assertions I should stop trusting?",
+      "expected_output": "Length-ladder procedure with separate outcome classes, knee detection config, assertion classification clean/medium/hard, override protocol.",
+      "files": []
+    }
+  ]
+}
